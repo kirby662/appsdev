@@ -1,8 +1,41 @@
 @import "tailwindcss";
 
-body {
-  margin: 0;
-  min-width: 320px;
-  background: #e7eee2;
-  color: #143b30;
+/* Delft-tile palette: porcelain, cobalt, navy ink and a butter-yellow accent. */
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Figtree", ui-sans-serif, system-ui, sans-serif;
+
+  --color-porcelain: #f3f5fb;
+  --color-paper: #ffffff;
+  --color-ink: #141c40;
+  --color-muted: #5a6389;
+  --color-line: #d6dcef;
+  --color-cobalt: #2340b8;
+  --color-cobalt-deep: #182b86;
+  --color-cobalt-soft: #e4e9fa;
+  --color-butter: #f6d55c;
+  --color-tomato: #c8374f;
+  --color-tomato-soft: #fbe6ea;
+}
+
+@layer base {
+  html { font-family: var(--font-sans); }
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--color-porcelain);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* The one signature element: a tiled cobalt band used on page headers and the sign-in screen. */
+.tile-bg {
+  background-color: var(--color-cobalt);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.13' stroke-width='1.5'%3E%3Ccircle cx='28' cy='28' r='10'/%3E%3Cpath d='M28 4 52 28 28 52 4 28Z'/%3E%3Ccircle cx='0' cy='0' r='7'/%3E%3Ccircle cx='56' cy='0' r='7'/%3E%3Ccircle cx='0' cy='56' r='7'/%3E%3Ccircle cx='56' cy='56' r='7'/%3E%3C/g%3E%3Ccircle cx='28' cy='28' r='2.5' fill='%23f6d55c' fill-opacity='.75'/%3E%3C/svg%3E");
+  background-size: 56px 56px;
 }
